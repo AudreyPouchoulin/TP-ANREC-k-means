@@ -10,8 +10,8 @@
  */
 public class Point {
 
-	private float x;
-	private float y; 
+	private int x;
+	private int y; 
 
 	// constructeur d'un point
 	public Point(){
@@ -19,28 +19,28 @@ public class Point {
 		this.y = 0;
 	}
 	
-	public Point(float a, float b){
+	public Point(int a, int b){
 		this.x = a;
 		this.y = b;
 	}	
 
 	// getter de l'abscisse
-	public float getX(){
+	public int getX(){
 		return this.x;
 	}
 	
 	// setter de l'abscisse	
-	public void setX(float x){
+	public void setX(int x){
 		this.x = x;
 	}
 
 	// getter de l'ordonne
-	public float getY(){
+	public int getY(){
 		return this.y;
 	}
 	
 	// setter de l'ordonnée	
-	public void setY(float y){
+	public void setY(int y){
 		this.y = y;
 	}
 	

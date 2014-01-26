@@ -29,4 +29,8 @@ abstract class ObjetGraphique {
         this.ligne(g, x - largeur / 2, y, x + largeur / 2, y);
         this.ligne(g, x, y - largeur / 2, x, y + largeur / 2);
     }
+    
+    public void cercle(Graphics g, int x, int y, int rayon) {
+    	g.drawOval(x, y, rayon, rayon);
+    }
 }

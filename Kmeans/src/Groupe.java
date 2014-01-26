@@ -16,7 +16,7 @@ public class Groupe extends ObjetGraphique {
 
 	private Point center;
 	private ArrayList<Point> members;
-	private String color;
+	private Color color;
 	
 	public Groupe(Point center){
 		this.center = center;
@@ -24,7 +24,7 @@ public class Groupe extends ObjetGraphique {
 		this.members.add(center);
 	}
 	
-	public Groupe(Point center, String color){
+	public Groupe(Point center, Color color){
 		this.center = center;
 		this.members = new ArrayList<Point>();
 		this.members.add(center);
@@ -32,7 +32,7 @@ public class Groupe extends ObjetGraphique {
 	}
 
 	public void remplasserParGroupe (Groupe groupeACopier){
-		this.center = groupeACopier.getCenter();
+		this.center = new Point(groupeACopier.getCenter().getX(), groupeACopier.getCenter().getY());
 		this.members = groupeACopier.getMembers();
 	}
 	
@@ -74,39 +74,30 @@ public class Groupe extends ObjetGraphique {
 	/**
 	 * @return the color
 	 */
-	public String getColor() {
+	public Color getColor() {
 		return color;
 	}
 
 	/**
 	 * @param color the color to set
 	 */
-	public void setColor(String color) {
+	public void setColor(Color color) {
 		this.color = color;
 	}
 	
 	@Override
     public void dessinerObjet(Graphics g) {
-		int tailleQuadrillage = 20;
-		this.croix(g, (int)(this.center.getX()*2*tailleQuadrillage), (int)(this.center.getY()*2*tailleQuadrillage), tailleQuadrillage);
+		int tailleQuadrillage = 8;
+		this.cercle(g, (int)(this.center.getX()*tailleQuadrillage), (int)(this.center.getY()*tailleQuadrillage), tailleQuadrillage);
 		for (int i=0; i<this.members.size(); i++){
 			this.croix(g, (int)(this.members.get(i).getX()*tailleQuadrillage), (int)(this.members.get(i).getY()*tailleQuadrillage), tailleQuadrillage);
-		}    
+		}
     }
 
-    @Override
+
+	@Override
     public void colorerObjet(Graphics g) {
-    	if (this.color.equals("blue")){
-    		g.setColor(Color.blue);
-    	} else if (this.color.equals("red")){
-    		g.setColor(Color.red);
-    	} else if (this.color.equals("green")){
-    		g.setColor(Color.green);
-    	} else if (this.color.equals("orange")){
-    		g.setColor(Color.orange);
-    	} else {
-    		g.setColor(Color.black);
-    	}
+    	g.setColor(this.color);
     }
 	
 	

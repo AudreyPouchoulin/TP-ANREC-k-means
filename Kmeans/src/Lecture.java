@@ -14,12 +14,17 @@ import java.util.ArrayList;
  *
  */
 public class Lecture {
-/**
-* @param args
-*/
 
-// TODO Auto-generated method stub
-	public static ArrayList<Point> lire(String filePath){
+	public int maxX;
+	public int maxY;
+	
+	public Lecture(){
+		maxX = 0;
+		maxY = 0;
+	}
+
+
+	public ArrayList<Point> lire(String filePath){
 		ArrayList<Point> donnees = new ArrayList<Point>();
 		        try{         
 		           BufferedReader buff = new BufferedReader(new FileReader(filePath));         
@@ -33,6 +38,12 @@ public class Lecture {
 		            	  point.setX( Integer.parseInt(coord[0]) );            	 
 		            	  point.setY( Integer.parseInt(coord[1]) );
 		            	  donnees.add(point);
+		            	  if (point.getX()>maxX){
+		            		  maxX=point.getX();
+		            	  }
+		            	  if (point.getY()>maxY){
+		            		  maxY=point.getY();
+		            	  }
 		              }     
 		              buff.close(); //Lecture fini donc on ferme le flux 
 		           }
